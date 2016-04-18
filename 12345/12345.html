@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>12345</title>
+<style type="text/css">
+#container{
+	margin: 200px 0 0 200px;
+	overflow: hidden;
+}
+.item{
+	width: 100px;
+	height: 50px;
+	float: left;
+	text-align: center;
+	line-height: 50px;
+	color: white;
+	font-size: 20px;
+	margin-right: 20px;
+}
+.one{
+	background-color: #FF4000;
+}
+.two{
+	background-color: #00BFFF;
+}
+.three{
+	background-color: #FACC2E;
+}
+.four{
+	background-color: #A901DB;
+}
+.five{
+	background-color: #58FA58;
+}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="item one" draggable="true" ondragstart="dragstart_handler(event)">1</div>
+<div class="item two" draggable="true">2</div>
+<div class="item three" draggable="true">3</div>
+<div class="item four" draggable="true">4</div>
+<div class="item five" draggable="true">5</div>
+</div>
+<script type="text/javascript">
+var container = document.getElementById("container");
+container.onclick = function(event){
+	//alert(event.target === this);
+}
+
+function dragstart_handler(event){
+	//alert(event.target.innerHTML);
+	var ele = event.target;
+	//var ele = container.removeChild(event.target);
+	var ele2 = event.target.parentNode.childElementCount;
+	//ele.style.display = "none";
+
+	console.log(ele2);
+	console.log(ele2.nodeName);
+	console.log(ele2.nodeType);
+}
+</script>
+</body>
+</html>
