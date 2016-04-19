@@ -45,7 +45,11 @@
 <script type="text/javascript">
 var container = document.getElementById("container");
 container.onclick = function(event){
-	//alert(event.target === this);
+	// if (event.target.hasClass("item")) {
+	// 	alert(event.target.innerHTML);
+	// };
+	//console.log(Array.isArray(event.target.classList));
+	console.log(event.target.classList.length instanceof Array);
 }
 
 function dragstart_handler(event){
