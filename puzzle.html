@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf8">
+<link rel="stylesheet" type="text/css" href="/css/puzzle.css">
+<title>puzzle by using vuejs</title>
+</head>
+<body>
+<div id="puzzle">
+  <div id="p-container">
+    <div class="overlay" v-show="showModal">
+      <h1>CONGRATULATION</h1>
+      <input class="btn" type="button" v-on:click="reset" value="确定">
+    </div>
+    <cell :is-start="isStart" :is-complete="isComplete" :position="n" :data="n" :row="level" :number="number" v-for="n in number" v:bind:style="styleObject"></cell>
+  </div>
+  <div id="right">
+    <div class="pic"></div>
+    <div class="level" @click="changeLevel(3)" v-bind:class="{ active : level == 3}">3X3</div>
+    <div class="level" @click="changeLevel(4)" v-bind:class="{ active : level == 4}">4X4</div>
+    <div class="level" @click="changeLevel(5)" v-bind:class="{ active : level == 5}">5X5</div>
+    <input class="btn" type="button" v-on:click="start" value="开始游戏">
+  </div>
+</div>
+
+<template id="p-cell">
+  <div class="cell" @click="move" v-bind:style="styleObject"></div>
+</template>
+
+<script type="text/javascript" src="/js/vue.min.js"></script>
+<script type="text/javascript" src="/js/puzzle.js"></script>
+</body>
+</html>
